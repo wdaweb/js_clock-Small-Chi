@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@600&family=Rubik:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      font-family: 'Manrope', sans-serif;
+
+      height: 100%;
+    }
+
+    body {
+      background-image: url("./img/shutterstock_1007304739.png");
+    }
+
+
+
+    .container {
+      width: 50%;
+      height: 60%;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+
+    .bigfish {
+      border-radius: 50%;
+      width: 500px;
+      height: 500px;
+      position: absolute;
+      margin: auto;
+      top: 0px;
+      bottom: 0px;
+      right: 0;
+      left: 0;
+      animation: circle 60s infinite linear forwards running;
+    }
+
+    .boat {
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 0, 0);
+      border-radius: 50%;
+      position: relative;
+      top: 200px;
+      right: -160px;
+      filter: drop-shadow(-3px 50px 0px rgb(2, 5, 32))
+    }
+
+    #clock1 {
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      position: relative;
+      left: 220px;
+      top: -200px;
+    }
+
+    .fish-circle {
+      width: 100%;
+      position: relative;
+      left: 220px;
+      top: -200px;
+    }
+
+    #clock2 {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      position: relative;
+      left: 425px;
+      top: -285px;
+    }
+
+    #clock3 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      position: relative;
+      left: 260px;
+      top: -400px;
+      animation: circle 60s infinite linear forwards running;
+    }
+
+    #hour {
+      width: 90px;
+      height: 50px;
+      border-radius: 5px;
+      top: calc(50% - 5px);
+      left: 50%;
+      position: absolute;
+      transform: rotate(0deg);
+      transform-origin: left center;
+    }
+
+    #minute {
+      width: 90px;
+      height: 20px;
+      border-radius: 5px;
+      top: calc(50% - 5px);
+      left: 50%;
+      position: absolute;
+      transform: rotate(0deg);
+      transform-origin: left center;
+    }
+
+    #second {
+      width: 48%;
+      height: 10px;
+      border-radius: 5px;
+      top: calc(50% - 5px);
+      left: 50%;
+      position: absolute;
+      transform: rotate(0deg);
+      transform-origin: left center;
+    }
+
+    .hfish {
+      width: 95%;
+      position: relative;
+      top: 3px;
+      right: -10px;
+
+    }
+
+    .mfish {
+      width: 80%;
+      position: relative;
+      top: 0px;
+      right: -25px;
+    }
+
+    .sfish {
+      width: 45%;
+      position: relative;
+      top: -70px;
+      right: 20px;
+    }
+
+
+    .bg {
+      width: 75%;
+      position: relative;
+      top: 120px;
+      left: -150px;
+      filter: drop-shadow(0 0 5px rgb(65, 84, 255))
+    }
+
+    .circle {
+      animation: circle 25s infinite linear forwards running;
+    }
+
+    @keyframes circle {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(180deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .TimeFish {
+      animation: TimeFish 3s infinite linear forwards running;
+
+    }
+
+    @keyframes TimeFish {
+      0% {
+        transform: translateX(0px);
+      }
+
+      100% {
+        transform: translateX(5px);
+      }
+    }
+
+    .ShowBox {
+      color: white;
+      font-size: 30px;
+      position: absolute;
+      z-index: 2;
+      filter: drop-shadow(0px 4px 0px rgb(2, 5, 32))
+    }
+
+    #showbox1 {
+      top: 75px;
+      left: 350px;
+      color: rgb(239, 126, 0);
+    }
+
+    #showbox2 {
+      top: 260px;
+      left: 535px;
+      color: rgb(0, 132, 189);
+    }
+
+    #showbox3 {
+      top: 370px;
+      left: 345px;
+      color: rgb(209, 82, 82);
+    }
+  </style>
+</head>
+
+<body onload="ShowTime()">
+  <div class="container">
+    <div class="ShowBox" id="showbox1"></div>
+    <div class="ShowBox" id="showbox2"></div>
+    <div class="ShowBox" id="showbox3"></div>
+    <div class="bigfish">
+      <img src="./img/bg-fish3.svg" class="bg">
+      <div id="TimeFont"></div>
+    </div>
+    <div class="boat">
+      <img src="./img/boat.svg">
+    </div>
+    <div id="clock1">
+      <img src="./img/fish-cercle3.svg" class="fish-circle1 circle">
+      <div id="hour">
+        <img src="./img/fish-hour.svg" class="hfish TimeFish">
+      </div>
+    </div>
+    <div id="clock2">
+      <img src="./img/fish-cercle3.svg" class="fish-circle1 circle">
+      <div id="minute">
+        <img src="./img/fish-minute.svg" class="mfish TimeFish">
+      </div>
+    </div>
+    <div id="clock3">
+      <img src="./img/fish-cercle3.svg" class="fish-circle1 circle">
+      <div id="second">
+        <img src="./img/fish-second2.svg" class="sfish">
+      </div>
+    </div>
+  </div>
+  <script>
+    const hour = document.getElementById("hour")
+    const minute = document.getElementById("minute")
+
+    const updateClock = () => {
+      const now = new Date()
+      hour.style.transform = `rotate(${30 * now.getHours() - 90}deg)`
+      minute.style.transform = `rotate(${6 * now.getMinutes() - 90}deg)`
+
+    }
+    updateClock()
+    setInterval(updateClock, 1000)
+
+    function ShowTime() {
+      const NowDate = new Date()
+      const h = NowDate.getHours()
+      const m = NowDate.getMinutes()
+      const s = NowDate.getSeconds()
+      document.getElementById("showbox1").innerHTML = h
+      document.getElementById("showbox2").innerHTML = m
+      document.getElementById("showbox3").innerHTML = s
+      setInterval("ShowTime()", 1000)
+    }
+
+
+
+  </script>
+</body>
+
+</html>
