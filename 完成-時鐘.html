@@ -90,7 +90,6 @@
       position: relative;
       left: 260px;
       top: -400px;
-      animation: circle 60s infinite linear forwards running;
     }
 
     #hour {
@@ -124,13 +123,15 @@
       position: absolute;
       transform: rotate(0deg);
       transform-origin: left center;
+      transition: 1s;
+      transition-timing-function: linear;
     }
 
     .hfish {
       width: 95%;
       position: relative;
       top: 3px;
-      right: -10px;
+      right: -38px;
 
     }
 
@@ -144,8 +145,8 @@
     .sfish {
       width: 45%;
       position: relative;
-      top: -70px;
-      right: 20px;
+      top: -20px;
+      right: -40px;
     }
 
 
@@ -240,34 +241,34 @@
     </div>
     <div id="clock3">
       <img src="./img/fish-cercle3.svg" class="fish-circle1 circle">
-      <div id="second">
-        <img src="./img/fish-second2.svg" class="sfish">
+      <div id="second" style="transform: rotate(216deg) translateY(-175px);">
+        <img src="./img/fish-second.svg" class="sfish">
       </div>
     </div>
   </div>
   <script>
     const hour = document.getElementById("hour")
     const minute = document.getElementById("minute")
+    const second = document.getElementById("second")
+    const showbox1 = document.getElementById("showbox1")
+    const showbox2 = document.getElementById("showbox2")
+    const showbox3 = document.getElementById("showbox3")
 
     const updateClock = () => {
       const now = new Date()
-      hour.style.transform = `rotate(${30 * now.getHours() - 90}deg)`
-      minute.style.transform = `rotate(${6 * now.getMinutes() - 90}deg)`
-
+      const h = now.getHours()
+      const m = now.getMinutes()
+      const s = now.getSeconds()
+      hour.style.transform = `rotate(${30 * h - 90}deg)`
+      minute.style.transform = `rotate(${6 * m - 90}deg)`
+      second.style.transform = `rotate(${6 * s - 90}deg) `
+      showbox1.innerHTML = h
+      showbox2.innerHTML = m
+      showbox3.innerHTML = s
     }
     updateClock()
     setInterval(updateClock, 1000)
 
-    function ShowTime() {
-      const NowDate = new Date()
-      const h = NowDate.getHours()
-      const m = NowDate.getMinutes()
-      const s = NowDate.getSeconds()
-      document.getElementById("showbox1").innerHTML = h
-      document.getElementById("showbox2").innerHTML = m
-      document.getElementById("showbox3").innerHTML = s
-      setInterval("ShowTime()", 1000)
-    }
 
 
 
