@@ -13,22 +13,21 @@
     html,
     body {
       font-family: 'Manrope', sans-serif;
-
       height: 100%;
     }
 
     body {
-      background-image: url("./img/shutterstock_1007304739.png");
+      background: url("./img/shutterstock_1007304739.png") no-repeat center/cover;
     }
 
 
 
     .container {
-      width: 50%;
-      height: 60%;
+      width: 1000px;
+      height: 600px;
       position: absolute;
       margin: auto;
-      top: 0;
+      top: 0px;
       bottom: 0;
       right: 0;
       left: 0;
@@ -42,8 +41,8 @@
       margin: auto;
       top: 0px;
       bottom: 0px;
-      right: 0;
-      left: 0;
+      right: 0px;
+      left: 0px;
       animation: circle 60s infinite linear forwards running;
     }
 
@@ -52,9 +51,12 @@
       height: 150px;
       background: rgba(255, 255, 0, 0);
       border-radius: 50%;
-      position: relative;
-      top: 200px;
-      right: -160px;
+      position: absolute;
+      margin: auto;
+      top: 150px;
+      bottom: 0px;
+      right: 0px;
+      left: -300px;
       filter: drop-shadow(-3px 50px 0px rgb(2, 5, 32))
     }
 
@@ -62,34 +64,37 @@
       width: 290px;
       height: 290px;
       border-radius: 50%;
-      position: relative;
-      left: 220px;
-      top: -200px;
+      position: absolute;
+      margin: auto;
+      top: -230px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
     }
 
-    .fish-circle {
-      width: 100%;
-      position: relative;
-      left: 220px;
-      top: -200px;
-    }
 
     #clock2 {
       width: 250px;
       height: 250px;
       border-radius: 50%;
-      position: relative;
-      left: 425px;
-      top: -285px;
+      position: absolute;
+      margin: auto;
+      top: 100px;
+      bottom: 0px;
+      right: -400px;
+      left: 0px;
     }
 
     #clock3 {
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      position: relative;
-      left: 260px;
-      top: -400px;
+      position: absolute;
+      margin: auto;
+      top: 0px;
+      bottom: -310px;
+      right: 0px;
+      left: 0px;
     }
 
     #hour {
@@ -127,32 +132,39 @@
       transition-timing-function: linear;
     }
 
+    .fish-circle {
+      width: 100%;
+      position: absolute;
+      left: 220px;
+      top: -200px;
+    }
+
     .hfish {
       width: 95%;
-      position: relative;
+      position: absolute;
       top: 3px;
-      right: -38px;
+      right: -5px;
 
     }
 
     .mfish {
       width: 80%;
-      position: relative;
+      position: absolute;
       top: 0px;
-      right: -25px;
+      right: -5px;
     }
 
     .sfish {
       width: 45%;
-      position: relative;
+      position: absolute;
       top: -20px;
-      right: -40px;
+      right: 10px;
     }
 
 
     .bg {
       width: 75%;
-      position: relative;
+      position: absolute;
       top: 120px;
       left: -150px;
       filter: drop-shadow(0 0 5px rgb(65, 84, 255))
@@ -196,20 +208,20 @@
     }
 
     #showbox1 {
-      top: 75px;
-      left: 350px;
+      top: 170px;
+      left: 480px;
       color: rgb(239, 126, 0);
     }
 
     #showbox2 {
-      top: 260px;
-      left: 535px;
+      top: 330px;
+      right: 280px;
       color: rgb(0, 132, 189);
     }
 
     #showbox3 {
-      top: 370px;
-      left: 345px;
+      bottom: 120px;
+      left: 485px;
       color: rgb(209, 82, 82);
     }
   </style>
@@ -241,7 +253,7 @@
     </div>
     <div id="clock3">
       <img src="./img/fish-cercle3.svg" class="fish-circle1 circle">
-      <div id="second" style="transform: rotate(216deg) translateY(-175px);">
+      <div id="second">
         <img src="./img/fish-second.svg" class="sfish">
       </div>
     </div>
