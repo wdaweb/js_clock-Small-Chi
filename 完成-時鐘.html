@@ -266,24 +266,52 @@
     const showbox2 = document.getElementById("showbox2")
     const showbox3 = document.getElementById("showbox3")
 
+    // 新增變數來記錄累積的圈數（避免倒退嚕）
+    let totalSeconds = 0;
+    let isFirstLoad = true;
+
     const updateClock = () => {
       const now = new Date()
       const h = now.getHours()
       const m = now.getMinutes()
       const s = now.getSeconds()
-      hour.style.transform = `rotate(${30 * h - 90}deg)`
-      minute.style.transform = `rotate(${6 * m - 90}deg)`
-      second.style.transform = `rotate(${6 * s - 90}deg) `
+
+      // 數字顯示依然保持正常的時、分、秒
       showbox1.innerHTML = h
       showbox2.innerHTML = m
       showbox3.innerHTML = s
+
+      // 計算時鐘正確的角度位置
+      const hDeg = 30 * h - 90
+      const mDeg = 6 * m - 90
+      const sDeg = 6 * s - 90
+
+      if (isFirstLoad) {
+        // 第一次載入時，直接設定到當前時間的角度
+        hour.style.transform = `rotate(${hDeg}deg)`
+        minute.style.transform = `rotate(${mDeg}deg)`
+        second.style.transform = `rotate(${sDeg}deg)`
+
+        // 算出目前時間點，相對於 0 點 0 分 0 秒總共過了幾秒
+        totalSeconds = (h * 3600) + (m * 60) + s;
+        isFirstLoad = false;
+      } else {
+        // 之後每秒累加 1 秒鐘的權重（1秒 = 6度）
+        totalSeconds++;
+
+        // 透過累加的總秒數來計算角度，使其只會增加、不會減少
+        const currentSRotate = totalSeconds * 6 - 90;
+
+        // 分針與時針也可以用同樣邏輯優化，或者維持原樣（因為分針時針一小時/一天才倒退一次，較不明顯）
+        // 這裡將秒針改為絕對累加
+        second.style.transform = `rotate(${currentSRotate}deg)`
+        hour.style.transform = `rotate(${hDeg}deg)`
+        minute.style.transform = `rotate(${mDeg}deg)`
+      }
     }
+
     updateClock()
     setInterval(updateClock, 1000)
-
-
-
-
   </script>
 </body>
 
